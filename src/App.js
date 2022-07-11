@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from "react-router-dom";
+import { useEffect, useState } from 'react';
+
+import Home from './components/Home';
+import Header from './components/Header';
+import FilmList from './components/FilmList';
+import UserForm from './components/UserForm';
+import FilmDetails from './components/FilmDetails'
+
 
 function App() {
+  const [films, setFilms] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9292/films')
+    .then(res => res.json())
+    .then(films => console.log(films))
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+       <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/films">
+            <FilmList />
+          </Route>
+          <Route exact path="/user/new">
+            <UserForm />
+          </Route>
+          <Route path="/films/:id">
+            <FilmDetails />
+          </Route>
+      </Switch>
     </div>
   );
 }
