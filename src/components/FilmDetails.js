@@ -29,17 +29,38 @@ function handleSubmit(e){
     },
     body: JSON.stringify(formData),
   })
-  // .then((resp) => resp.json())
-  // .then()
-
+   .then((resp) => resp.json())
+   .then(newReview => setReviews([...reviews, newReview]))
+  
+  
   setFormData({
     name: "",
     review_body: ""
   });
 }
 
+function handleDeleteReview(id) {
+  const deleteReview = reviews.filter((review) => review.id !== id)
+  setReviews(deleteReview) 
+  fetch(`http://localhost:9292/reviews/${id}`, {
+      method:'DELETE'
+    })
+}
+
+function onUpdateReview(updatedReview) {
+  const updatedReviews = reviews.map(review => {
+    if(review.id === updatedReview.id) {
+      return updatedReview
+    } else {
+      return review
+    }
+  }); 
+  setReviews(updatedReviews)
+}
+
 const { id } = useParams();
 
+//get requests
 useEffect(() => {
   fetch(`http://localhost:9292/films/${id}`)
   .then((r) => r.json())
@@ -51,6 +72,8 @@ useEffect(() => {
   .then((r) => r.json())
   .then((reviews) => setReviews(reviews))
 }, [id])
+
+
 
 
 const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsis, critics_consensus, image_url, trailer, genre } = film
@@ -70,8 +93,8 @@ const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsi
           {rotten_tomatoes_score}%
         </div>
         <h2>User Reviews</h2>
-        {reviews.map(review => <Review key={review.id} review={review}/>)}
-        <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData}/>
+        {reviews.map(review => <Review key={review.id} review={review} handleDeleteReview={handleDeleteReview} onUpdateReview={onUpdateReview} />)}
+        <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} />
       </div>
     );
   }

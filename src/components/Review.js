@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function Review( {review} ) {
+function Review( {review, handleDeleteReview, onUpdateReview} ) {
   const {review_body} = review
   const [show, setShow] = useState(false)
   const [edit, setEdit] = useState("")
@@ -11,7 +11,6 @@ function Review( {review} ) {
 
   function handleChange(e) {
     setEdit(e.target.value)
-    console.log(edit)
   }
 
   function handleSubmit(e) {
@@ -24,11 +23,15 @@ function Review( {review} ) {
       },
       body: JSON.stringify({review_body:edit}),
     })
+    .then(res => res.json())
+    .then(updatedReview => onUpdateReview(updatedReview))
     setEdit("")
   }
 
+
     return (
       <div>
+        <button className="delete-btn" onClick={() =>handleDeleteReview(review.id)}>X</button>
         <p>{review_body}</p>
         <button onClick={handleShow}>Edit</button>
         <form className={show ? "display" : "hide"} onSubmit={handleSubmit}>
