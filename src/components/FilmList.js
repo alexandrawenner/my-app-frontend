@@ -1,8 +1,18 @@
-function FilmList() {
-    return (
-      <div>
+import FilmListItem from "./FilmListItem";
+function FilmList({ films }) {
 
-      </div>
+    const allFilms = films
+    .map(film => {
+      return (
+        <FilmListItem key={film.id} film={film}/>
+      )
+    })
+    return (
+      <section>
+        <div>
+          {allFilms}
+        </div>
+      </section>
     );
   }
   

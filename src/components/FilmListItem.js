@@ -1,7 +1,7 @@
-function FilmListItem() {
+function FilmListItem({ film }) {
     return (
       <div>
-    
+          {film.title}
       </div>
     );
   }

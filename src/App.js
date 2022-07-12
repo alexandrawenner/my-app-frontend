@@ -15,8 +15,8 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:9292/films')
     .then(res => res.json())
-    .then(films => console.log(films))
-  })
+    .then(films => setFilms(films))
+  }, [])
 
   return (
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/films">
-            <FilmList />
+            <FilmList films={films}/>
           </Route>
           <Route exact path="/user/new">
             <UserForm />
