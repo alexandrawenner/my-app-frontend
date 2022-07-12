@@ -41,3 +41,11 @@ img {
   max-width: 40px;
   max-height: 60px;
 }
+
+.display {
+  display:block
+}
+
+.hide {
+  display: none;
+}

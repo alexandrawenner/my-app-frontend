@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 
+import ReviewForm from "./ReviewForm";
+import Review from "./Review"
+
 function FilmDetails() {
 
 const [film, setFilm] = useState([])
@@ -8,6 +11,7 @@ const [formData, setFormData] = useState({
   name: "",
   review_body: ""
 })
+const [reviews, setReviews] = useState([])
 
 function handleChange(e){
   const { name, value } = e.target
@@ -42,6 +46,13 @@ useEffect(() => {
   .then((film) => setFilm(film))
 }, [id])
 
+useEffect(() => {
+  fetch(`http://localhost:9292/films/${id}/reviews`)
+  .then((r) => r.json())
+  .then((reviews) => setReviews(reviews))
+}, [id])
+
+
 const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsis, critics_consensus, image_url, trailer, genre } = film
 
     return (
@@ -58,21 +69,9 @@ const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsi
           <p>Genre: {genre}</p>
           {rotten_tomatoes_score}%
         </div>
-
-        <form onSubmit={handleSubmit}>
-
-          <h2>Feel free to add your own review!</h2>
-
-          <div> 
-            <input type="text" id="name" placeholder="Reviewer..." name="name" value={formData.name} onChange={handleChange}/>
-          </div>
-
-          <div> 
-            <textarea id="review_body" name="review_body" placeholder="Write something.." value={formData.review_body} onChange={handleChange} style={{height:200}}></textarea>
-          </div>
-
-          <button type="submit">Submit</button>
-        </form>
+        <h2>User Reviews</h2>
+        {reviews.map(review => <Review key={review.id} review={review}/>)}
+        <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData}/>
       </div>
     );
   }

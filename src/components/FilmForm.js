@@ -11,8 +11,7 @@ function FilmForm({ onAddFilm }) {
     image: "",
     trailer: ""
   }
-  console.log(newFilmData)
-  console.log("hello")
+
   const [newFilmData, setNewFilmData] = useState(initialState)
 
     
