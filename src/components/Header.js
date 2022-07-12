@@ -14,9 +14,6 @@ function Header() {
           <NavLink exact className="button" to="/user/new">
             User Form
           </NavLink>
-          <NavLink exact className="button" to="/films/:id">
-            Film Details
-          </NavLink>
           </div>
         </nav>
       </header>
