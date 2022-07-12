@@ -23,7 +23,7 @@ function App() {
       <Header />
        <Switch>
           <Route exact path="/">
-            <Home />
+            <Home films={films}/>
           </Route>
           <Route exact path="/films">
             <FilmList films={films}/>
