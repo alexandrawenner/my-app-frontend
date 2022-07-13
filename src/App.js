@@ -2,10 +2,10 @@ import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from 'react';
 
 import Home from './components/Home';
-import Header from './components/Header';
 import FilmList from './components/FilmList';
 import UserForm from './components/UserForm';
 import FilmDetails from './components/FilmDetails'
+import Nav from "./components/Nav";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Nav />
        <Switch>
           <Route exact path="/">
             <Home films={films}/>

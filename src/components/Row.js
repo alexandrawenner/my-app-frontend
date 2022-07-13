@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Row.css'
 import YouTube from 'react-youtube'
-import movieTrailer from 'movie-trailer'
+//import movieTrailer from 'movie-trailer'
 
 function Row ({ title, films }) {
 

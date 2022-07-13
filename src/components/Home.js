@@ -19,7 +19,6 @@ function Home( { films } ) {
 
     return (
       <div className="App">
-        <Nav />
         <Banner />
         <Row title="Highest Rated" films={highestRated}/>
         <Row title="Comedies" films={comedies}/>
