@@ -1,29 +1,31 @@
 import FilmThumbnail from "./FilmThumbnail";
+import '../App.css';
+import Row from "./Row";
+import Banner from "./Banner";
+import Nav from "./Nav";
+
 
 function Home( { films } ) {
 
-  const comedies = films
-  .filter(film => film.genre.includes("comedy"))
-  .map(film => <FilmThumbnail key={film.id} film={film}/>)
+  const highestRated = films.filter(film => film.rotten_tomatoes_score > 90)
 
-  const drama = films
-  .filter(film => film.genre.includes("drama"))
-  .map(film => <FilmThumbnail key={film.id} film={film}/>)
+  const comedies = films.filter(film => film.genre.includes("comedy"))
 
-  const horror = films
-  .filter(film => film.genre.includes("horror"))
-  .map(film => <FilmThumbnail key={film.id} film={film}/>)
+  const drama = films.filter(film => film.genre.includes("drama"))
 
-  const thriller = films
-  .filter(film => film.genre.includes("thriller"))
-  .map(film => <FilmThumbnail key={film.id} film={film}/>)
+  const horror = films.filter(film => film.genre.includes("horror"))
+
+  const thriller = films.filter(film => film.genre.includes("thriller"))
 
     return (
-      <div>
-        <div>Comedies: {comedies}</div>
-        <div>Drama: {drama}</div>
-        <div>Horror: {horror}</div>
-        <div>Thriller: {thriller}</div>
+      <div className="App">
+        <Nav />
+        <Banner />
+        <Row title="Highest Rated" films={highestRated}/>
+        <Row title="Comedies" films={comedies}/>
+        <Row title="Drama" films={drama}/>
+        <Row title="Horror" films={horror}/>
+        <Row title="Thriller" films={thriller}/>
       </div>
     );
   }
