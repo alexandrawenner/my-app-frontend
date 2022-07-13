@@ -1,0 +1,33 @@
+.film-li-image {
+    max-height: 250px;
+    max-width: 250px;
+    float: left;
+    padding-top: 35px;
+    margin-right: 10px;
+}
+
+.film-li-info {
+    margin-bottom: 30px;
+    padding: 30px;
+}
+.film-li-info:last-of-type {
+    margin-bottom: 0px;
+    padding-bottom: 60px;
+}
+
+.film-li-heading{
+    font-size: 30px;
+    padding-bottom: 30px;
+    margin-top: 20px;
+}
+
+.film-body-details {
+    font-size: 18px;
+    display: inline;
+}
+
+.rotten-tomato {
+    max-width: 50px;
+    max-height: 50px;
+    padding-top: 5px;
+}

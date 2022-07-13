@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import './UserForm.css'
 
 function UserForm() {
   const [name, setName] = useState("")
@@ -22,15 +23,18 @@ function UserForm() {
   }
 
     return (
-     <section>
+     <section className='registerSection'>
+      <div className='userDiv'>
       <form className='userform' autoComplete='off' onSubmit={handleSubmit}>
-        <h2>Add a User</h2>
-          <label>Username</label>
+        <h2>REGISTER</h2>
+          <p>If you'd like to submit a review, please register below, and make sure to remember your username.</p>
+          <p> Please don't register more than once.</p>
           <input
-             type='text' required id='name' name='name' onChange={handleChange} value={name}
+             type='text' required id='name' name='name' onChange={handleChange} value={name} placeholder="USERNAME"
           />
-          <button type="submit" className="user-form-btn">Submit</button>
+          <button type="submit" className="user-form-btn">SUBMIT</button>
       </form>
+      </div>
      </section>
      
     );

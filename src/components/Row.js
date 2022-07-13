@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Row.css'
 import YouTube from 'react-youtube'
-//import movieTrailer from 'movie-trailer'
 
 function Row ({ title, films }) {
 
@@ -19,7 +18,11 @@ function Row ({ title, films }) {
 
     function handleClick(film){
         const trailerId = film.trailer.slice(32, 43)
-        setTrailerUrl(trailerId)
+        if (trailerUrl) {
+            setTrailerUrl('')
+        } else {
+            setTrailerUrl(trailerId)
+            }
     }
 
     return (
@@ -36,7 +39,7 @@ function Row ({ title, films }) {
                         
                 ))}
             </div>
-            <YouTube videoId={trailerUrl} opt={opts} />
+            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}/>}
         </div>
     )
 }

@@ -8,11 +8,9 @@ function FilmList({ films }) {
       )
     })
     return (
-      <section>
-        <div>
-          {allFilms}
-        </div>
-      </section>
+      <div className="filmContainer">
+        {allFilms}
+      </div>
     );
   }
   

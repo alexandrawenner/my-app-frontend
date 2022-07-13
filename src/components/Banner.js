@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import './Banner.css'
 
 function Banner() {
@@ -37,12 +38,13 @@ function Banner() {
                 </h1>
 
                 <div className="banner__buttons">
-                    <button className="banner__btn">Play</button>
-                    <button className="banner__btn">My List</button>
+                    <NavLink exact to={`/films/${randomFilm.id}`}>
+                        <button className="banner__btn">Explore</button>
+                    </NavLink>
                 </div>
 
                 <h1 className="banner__description">
-                    {truncate(randomFilm.synopsis, 150)}
+                    {truncate(randomFilm.synopsis, 200)}
                 </h1>
             </div>
             <div className="banner--fadeBottom" />

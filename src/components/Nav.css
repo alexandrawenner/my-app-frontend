@@ -3,7 +3,7 @@
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     height: 30px;
     padding: 20px;
     z-index: 1;
@@ -21,7 +21,6 @@
 
 .nav__avatar {
     position: fixed;
-
     right: 20px;
     width: 30px;
     object-fit: contain;
@@ -31,3 +30,16 @@
 .nav__black {
     background-color: #111111;
 }
+
+nav {
+    text-align: left;
+    margin-left: 30px;
+}
+
+nav a {
+    color: azure;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: larger;
+}
+
