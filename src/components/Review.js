@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
+import './FilmDetails.css'
 
 function Review( {review, handleDeleteReview, onUpdateReview} ) {
   const {review_body} = review
   const [show, setShow] = useState(false)
-  const [edit, setEdit] = useState("")
+  const [edit, setEdit] = useState(review_body)
   
   function handleShow() {
     setShow(!show)
@@ -30,10 +31,10 @@ function Review( {review, handleDeleteReview, onUpdateReview} ) {
 
 
     return (
-      <div>
-        <button className="delete-btn" onClick={() =>handleDeleteReview(review.id)}>X</button>
+      <div className='individualReviews'>
         <p>{review_body}</p>
         <button onClick={handleShow}>Edit</button>
+        <button className="delete-btn" onClick={() =>handleDeleteReview(review.id)}>Delete</button>
         <form className={show ? "display" : "hide"} onSubmit={handleSubmit}>
           <input type='text' required id='name' name='name' onChange={handleChange} value={edit}/>
           <button type='submit'>Submit</button>

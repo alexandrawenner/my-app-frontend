@@ -82,9 +82,10 @@ if (!isLoaded) return <h2>Loading...</h2>
 
 const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsis, critics_consensus, image_url, trailer, genre } = film
 
+let rottenLogo = rotten_tomatoes_score > 50 ? "https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/31/1501854760-certified-fresh.png" : "https://www.pngkey.com/png/full/94-948135_open-rotten-tomatoes-green-png.png"
 
 const opts = {
-  height: '600',
+  height: '400',
   width: '40%',
   playerVars: {
       // https://developers.google.com/youtube/player_parameters
@@ -95,25 +96,33 @@ const opts = {
     return (
       
       <div className="filmDetailsDiv">
+
         <div className="trailer">
           <YouTube videoId={trailer.slice(32, 43)} opts={opts}/>
         </div>
+
         <div className="basicInfo">
-          {title}
-          {year}     
-          <p>Genre: {genre}</p>
-          <p>Runtime: {runtime}min.</p>
-          {rotten_tomatoes_score}%
+          <h1>{title}</h1>
+          <p>{year}, {genre}, {runtime}m</p> 
+          <p className="score"><img src={rottenLogo} alt="rottenTomatoLogo"/>{rotten_tomatoes_score}%</p>
         </div>
-        <div>
-          <p>Director: {director}</p>
-          <p>Starring: {starring}</p>
-          <p>Critics Consensus: {critics_consensus}</p>
-          <p>Synopsis: {synopsis}</p>         
+
+        <div className="additionalInfo">
+          <p><span style={{fontWeight: 'bold'}}>Director</span>: {director}</p>
+          <p><span style={{fontWeight: 'bold'}}>Starring</span>: {starring}</p>
+          <p><span style={{fontWeight: 'bold'}}>Critics Consensus</span>: {critics_consensus}</p>
+          <p><span style={{fontWeight: 'bold'}}>Synopsis</span>: {synopsis}</p>         
         </div>
-        <h2>User Reviews</h2>
-        {reviews.map(review => <Review key={review.id} review={review} handleDeleteReview={handleDeleteReview} onUpdateReview={onUpdateReview} />)}
-        <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} />
+
+        <div className="reviews">
+          <h2>User Reviews</h2>
+          {reviews.map(review => <Review key={review.id} review={review} handleDeleteReview={handleDeleteReview} onUpdateReview={onUpdateReview} />)}
+        </div>
+
+        <div className="submitReview">
+          <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} />
+        </div>
+
       </div>
     );
   }

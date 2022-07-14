@@ -1,8 +1,9 @@
 .filmDetailsDiv{
-    background-color: beige;
-    height: 100vh;
+    background-color: black;
+    height: 100%;
     text-align: center;
     position: relative;
+    color: black;
 }
 
 .filmDetailsDiv img{
@@ -14,5 +15,110 @@ iframe{
 }
 
 .trailer{
-    margin-top: 10rem;
+    padding-top: 10rem;
+    margin-bottom: 3.5rem;
 }
+
+.basicInfo{
+    background-color: lightgray;
+    width: 40%;
+    height: 240px;
+    margin: 60px auto;
+    border-radius: 20px;
+}
+
+.basicInfo h1{
+    margin: 20px 0;
+    padding-top: 30px;
+}
+
+.rotten-tomato{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rotten-tomato{
+    max-width: fit-content;
+    height: auto;
+    width: 100px;
+    float: left;
+}
+
+.score{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+.score img{
+    max-width: 60px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.additionalInfo{
+    background-color: lightgray;
+    width: 40%;
+    height: 280px;
+    margin: 60px auto;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px 0;
+    height: auto;
+}
+
+.additionalInfo p{
+    margin: 20px;
+    text-align: justify;
+}
+
+.individualReviews{
+    background-color: white;
+    width: 30%;
+    padding: 20px;
+    line-height: 25px;
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
+.individualReviews button, .reviewSubmitForm button{
+    margin: 10px 10px;
+    margin-bottom: 0px;
+    padding: 7px;
+    width: 200px;
+    border-radius: 8px;
+    border: none;
+}
+
+.reviews h2{
+    color: white;
+}
+
+.reviewSubmitForm h2{
+    color: white;
+}
+
+.reviewSubmitForm{
+    color: black;
+}
+
+.input{
+    width: 32%;
+    border-radius: 10px;
+    height: 20px;
+    margin: 10px auto;
+    padding: 7px;
+}
+
+.textarea{
+    width: 31%;
+    border-radius: 10px;
+    margin: 15px auto;
+    padding: 15px;
+}
+
+.input::placeholder, .textarea::placeholder { 
+    color: black;
+    
+  }
+

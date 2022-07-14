@@ -7,25 +7,29 @@ function FilmListItem({ film }) {
 
   let rottenLogo = rotten_tomatoes_score > 50 ? "https://911media.com/wp-content/uploads/2017/10/rotten-tomatoes-logo.png" : "https://www.pngkey.com/png/full/94-948135_open-rotten-tomatoes-green-png.png"
 
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+}
+
     return (
       <div className="film-li-info">
         <NavLink to={`/films/${id}`}>
           <img className="film-li-image" src={image_url} alt="filmPoster"/>
         </NavLink>
-            <section className="film-li-heading">
-              {title}
-              ({year})
-             <img className="rotten-tomato" src={rottenLogo} alt="rottenTomatoLogo"/>{rotten_tomatoes_score}%
 
+            <section className="film-li-heading">
+            <NavLink to={`/films/${id}`}>
+              <p className="headerLinks">{`${title} (${year})`}</p>
+            </NavLink>
             </section>
           
             <section className="film-body-details">
               <p><b>Runtime:</b> {runtime}min.</p>
               <p><b>Director:</b> {director}</p>
               <p><b>Starring:</b> {starring}</p>
-              <p><b>Critics Consensus:</b> {critics_consensus}</p>
-              <p><b>Synopsis:</b> {synopsis}</p>
+              <p><b>Synopsis:</b> {truncate(synopsis, 400)}</p>
               <p><b>Genre:</b> {genre}</p>
+              <p><b>Tomatometer:</b> {rotten_tomatoes_score}%</p>
               
             </section>
           
