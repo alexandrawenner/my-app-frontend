@@ -1,4 +1,6 @@
 import FilmListItem from "./FilmListItem";
+import './FilmList.css'
+
 function FilmList({ films }) {
 
     const allFilms = films

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import './FilmDetails.css'
+import YouTube from 'react-youtube'
 
 import ReviewForm from "./ReviewForm";
 import Review from "./Review"
@@ -59,12 +61,15 @@ function onUpdateReview(updatedReview) {
 }
 
 const { id } = useParams();
-
+const [isLoaded, setIsLoaded] = useState(false)
 //get requests
 useEffect(() => {
   fetch(`http://localhost:9292/films/${id}`)
   .then((r) => r.json())
-  .then((film) => setFilm(film))
+  .then(film => {
+    setFilm(film);
+    setIsLoaded(true)
+})
 }, [id])
 
 useEffect(() => {
@@ -73,15 +78,26 @@ useEffect(() => {
   .then((reviews) => setReviews(reviews))
 }, [id])
 
-
-
+if (!isLoaded) return <h2>Loading...</h2>
 
 const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsis, critics_consensus, image_url, trailer, genre } = film
 
+
+const opts = {
+  height: '600',
+  width: '40%',
+  playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+  },
+};
+
+
+
     return (
-      <div>
+      
+      <div className="filmDetailsDiv">
         <div>
-          <img src={image_url} alt="filmPoster"/>
+          <YouTube videoId={trailer.slice(32, 43)} opts={opts}/>
           {title}
           {year}
           <p>Runtime: {runtime}min.</p>

@@ -18,7 +18,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div>
       <Nav />
        <Switch>
           <Route exact path="/">

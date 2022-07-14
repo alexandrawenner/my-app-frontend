@@ -1,8 +1,6 @@
-import FilmThumbnail from "./FilmThumbnail";
 import '../App.css';
 import Row from "./Row";
 import Banner from "./Banner";
-import Nav from "./Nav";
 
 
 function Home( { films } ) {
