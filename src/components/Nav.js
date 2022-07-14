@@ -2,7 +2,7 @@
  import { useEffect, useState } from 'react'
  import {NavLink} from 'react-router-dom'
 
-function Nav() {
+function Nav( { search, handleSearch } ) {
     const [show, handleShow] = useState(false)
 
     useEffect(() => {
@@ -35,7 +35,9 @@ function Nav() {
           </NavLink>
         </nav>
 
-        
+        <form>
+          <input type="text" placeholder="Search.." name="search" value={search} onChange={handleSearch}/>
+        </form>
 
         <img
             className="nav__avatar"

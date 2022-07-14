@@ -92,21 +92,24 @@ const opts = {
 };
 
 
-
     return (
       
       <div className="filmDetailsDiv">
-        <div>
+        <div className="trailer">
           <YouTube videoId={trailer.slice(32, 43)} opts={opts}/>
+        </div>
+        <div className="basicInfo">
           {title}
-          {year}
+          {year}     
+          <p>Genre: {genre}</p>
           <p>Runtime: {runtime}min.</p>
+          {rotten_tomatoes_score}%
+        </div>
+        <div>
           <p>Director: {director}</p>
           <p>Starring: {starring}</p>
           <p>Critics Consensus: {critics_consensus}</p>
-          <p>Synopsis: {synopsis}</p>
-          <p>Genre: {genre}</p>
-          {rotten_tomatoes_score}%
+          <p>Synopsis: {synopsis}</p>         
         </div>
         <h2>User Reviews</h2>
         {reviews.map(review => <Review key={review.id} review={review} handleDeleteReview={handleDeleteReview} onUpdateReview={onUpdateReview} />)}

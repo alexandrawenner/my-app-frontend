@@ -28,7 +28,7 @@ function Banner() {
         <header className='banner'
              style={{
                 backgroundSize: "cover",
-                backgroundImage: `url("${randomFilm.image_url}")`,
+                backgroundImage: `url("${randomFilm.banner}")`,
                 backgroundPosition: "center center"
             }}
         >

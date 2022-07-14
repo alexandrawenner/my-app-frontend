@@ -5,6 +5,8 @@ function FilmListItem({ film }) {
 
   const { id, title, year, runtime, rotten_tomatoes_score, director, starring, synopsis, critics_consensus, image_url, trailer, genre } = film
 
+  let rottenLogo = rotten_tomatoes_score > 50 ? "https://911media.com/wp-content/uploads/2017/10/rotten-tomatoes-logo.png" : "https://www.pngkey.com/png/full/94-948135_open-rotten-tomatoes-green-png.png"
+
     return (
       <div className="film-li-info">
         <NavLink to={`/films/${id}`}>
@@ -13,7 +15,8 @@ function FilmListItem({ film }) {
             <section className="film-li-heading">
               {title}
               ({year})
-              <img className="rotten-tomato" src="https://911media.com/wp-content/uploads/2017/10/rotten-tomatoes-logo.png" alt="rottenTomatoLogo"/>{rotten_tomatoes_score}%
+             <img className="rotten-tomato" src={rottenLogo} alt="rottenTomatoLogo"/>{rotten_tomatoes_score}%
+
             </section>
           
             <section className="film-body-details">

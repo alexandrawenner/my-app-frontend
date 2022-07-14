@@ -1,8 +1,7 @@
 .filmDetailsDiv{
-    background-color: blue;
+    background-color: beige;
     height: 100vh;
     text-align: center;
-    margin-top: 0;
     position: relative;
 }
 
@@ -10,3 +9,10 @@
     max-height: 200px;
 }
 
+iframe{
+    border-radius: 20px;
+}
+
+.trailer{
+    margin-top: 10rem;
+}

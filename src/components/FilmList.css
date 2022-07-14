@@ -6,8 +6,16 @@
     margin-right: 10px;
 }
 
+html, body {
+    margin:0px;
+    height:100%;
+    background-color: black;
+  }
+  
+  
 .filmContainer{
     background-color: black;
+    height:100%;
 }
 
 .film-li-info {

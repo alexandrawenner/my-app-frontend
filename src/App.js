@@ -10,6 +10,11 @@ import Nav from "./components/Nav";
 
 function App() {
   const [films, setFilms] = useState([])
+  const [search, setSearch] = useState("")
+
+  function handleSearch(e){
+    setSearch(e.target.value)
+}
 
   useEffect(() => {
     fetch('http://localhost:9292/films')
@@ -17,15 +22,19 @@ function App() {
     .then(films => setFilms(films))
   }, [])
 
+  
+  const allFilms = films.filter(film => film.title.toLowerCase().includes(search.toLowerCase()))
+
+
   return (
     <div>
-      <Nav />
+      <Nav handleSearch={handleSearch} search={search}/>
        <Switch>
           <Route exact path="/">
-            <Home films={films}/>
+            <Home films={allFilms}/>
           </Route>
           <Route exact path="/films">
-            <FilmList films={films}/>
+            <FilmList films={allFilms}/>
           </Route>
           <Route exact path="/user/new">
             <UserForm />

@@ -19,9 +19,9 @@ function Home( { films } ) {
       <div className="App">
         <Banner />
         <Row title="Highest Rated" films={highestRated}/>
-        <Row title="Comedies" films={comedies}/>
-        <Row title="Drama" films={drama}/>
         <Row title="Horror" films={horror}/>
+        <Row title="Drama" films={drama}/>
+        <Row title="Comedies" films={comedies}/>
         <Row title="Thriller" films={thriller}/>
       </div>
     );
