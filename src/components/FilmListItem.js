@@ -13,6 +13,7 @@ function FilmListItem({ film }) {
 
     return (
       <div className="film-li-info">
+        
         <NavLink to={`/films/${id}`}>
           <img className="film-li-image" src={image_url} alt="filmPoster"/>
         </NavLink>

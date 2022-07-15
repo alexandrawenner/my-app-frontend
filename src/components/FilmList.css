@@ -18,7 +18,7 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height:100%;
+    padding: 120px 0;
 }
 
 .film-li-info {
@@ -37,15 +37,6 @@ html, body {
     color: white;
 }
 
-.film-li-info:first-of-type {
-    /* margin-top: 120px; */
-}
-
-
-.film-li-info:last-of-type {
-    padding-bottom: 120px;
-}
-
 .film-li-heading{
     font-size: 30px;
     padding-bottom: 30px;
@@ -61,6 +52,12 @@ html, body {
     line-height: 40px;
     letter-spacing: .8px;
 }
+
+@media only screen and (max-width: 1800px) {
+    .film-body-details {
+        font-size: 15px;
+    }
+  }
 
 .rotten-tomato {
     max-width: 50px;

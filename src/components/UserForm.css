@@ -1,5 +1,8 @@
 .registerSection{
-    background-color: black;
+    background-image: url("https://cbeditz.com/large/11624180288j4jptbof2ka10flgsot4wlf0sipbyq04jqw4xqq3szl2yptyiygyrgalhpiznbac4ht9w2beixowl7quexcrddlyx77urnuuhuke.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
     text-align: center;
     margin-top: 0;
@@ -45,7 +48,7 @@
     padding: .9rem 13rem;
     border: none;
     border-bottom: 1px solid;
-    background-color: black;
+    background-color: transparent;
     color: white;
     display: inline;
     text-align: center;

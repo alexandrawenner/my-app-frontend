@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './FilmDetails.css'
 
 function Review( {review, handleDeleteReview, onUpdateReview} ) {
-  const {review_body} = review
+  const { review_body, user_id, created_at  } = review
   const [show, setShow] = useState(false)
   const [edit, setEdit] = useState(review_body)
+  const [user, setUser] = useState("")
   
   function handleShow() {
     setShow(!show)
@@ -26,18 +27,29 @@ function Review( {review, handleDeleteReview, onUpdateReview} ) {
     })
     .then(res => res.json())
     .then(updatedReview => onUpdateReview(updatedReview))
-    setEdit("")
+    setEdit(review_body)
+    setShow(!show)
   }
 
+  useEffect(() => {
+    fetch(`http://localhost:9292/users/${user_id}`)
+    .then(res => res.json())
+    .then(user => setUser(user))
+  }, [user_id])
+
+  const date = created_at.slice(0, 10)
 
     return (
       <div className='individualReviews'>
-        <p>{review_body}</p>
-        <button onClick={handleShow}>Edit</button>
-        <button className="delete-btn" onClick={() =>handleDeleteReview(review.id)}>Delete</button>
+        <div className={show ? "hide" : "display"}>
+          <p>{date}, by {user.name}</p>
+          <p className='reviewBody'>{review_body}</p>
+          <button onClick={handleShow}>Edit</button>
+          <button className="delete-btn" onClick={() =>handleDeleteReview(review.id)}>Delete</button>
+        </div>
         <form className={show ? "display" : "hide"} onSubmit={handleSubmit}>
-          <input type='text' required id='name' name='name' onChange={handleChange} value={edit}/>
-          <button type='submit'>Submit</button>
+          <textarea className="editInput" type='text' required id='name' name='name' onChange={handleChange} value={edit}/>
+          <button type='submit'>Edit</button>
         </form>
       </div>
     );

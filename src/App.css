@@ -1,11 +1,11 @@
 *{
   margin: 0;
-  
 }
 
 .App{
   background-color: #111111;
   color: white;
+  padding-bottom: 50px;
 }
 
 /* Delete and Edit buttons for Reviews */

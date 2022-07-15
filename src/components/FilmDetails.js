@@ -85,7 +85,7 @@ const { title, year, runtime, rotten_tomatoes_score, director, starring, synopsi
 let rottenLogo = rotten_tomatoes_score > 50 ? "https://hips.hearstapps.com/digitalspyuk.cdnds.net/17/31/1501854760-certified-fresh.png" : "https://www.pngkey.com/png/full/94-948135_open-rotten-tomatoes-green-png.png"
 
 const opts = {
-  height: '400',
+  height: '500',
   width: '40%',
   playerVars: {
       // https://developers.google.com/youtube/player_parameters
@@ -104,7 +104,8 @@ const opts = {
         <div className="basicInfo">
           <h1>{title}</h1>
           <p>{year}, {genre}, {runtime}m</p> 
-          <p className="score"><img src={rottenLogo} alt="rottenTomatoLogo"/>{rotten_tomatoes_score}%</p>
+          <img className="rottenTomatoLogo" src={rottenLogo} alt="rottenTomatoLogo"/>
+          <p className="score">{rotten_tomatoes_score}%</p>
         </div>
 
         <div className="additionalInfo">
