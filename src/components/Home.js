@@ -7,7 +7,7 @@ function Home( { films } ) {
 
   const highestRated = films.filter(film => film.rotten_tomatoes_score > 90)
 
-  const comedies = films.filter(film => film.genre.includes("comedy"))
+  const comedies = films.filter(film => film.genre.includes("comedy")).reverse()
 
   const drama = films.filter(film => film.genre.includes("drama"))
 

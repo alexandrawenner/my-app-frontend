@@ -36,7 +36,7 @@ function Nav( { search, handleSearch } ) {
         </nav>
 
         <form>
-          <input type="text" placeholder="Search.." name="search" value={search} onChange={handleSearch}/>
+          <input className="input-search" type="text" placeholder="Search.." name="search" value={search} onChange={handleSearch}/>
         </form>
 
         <img

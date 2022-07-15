@@ -9,6 +9,7 @@ import Review from "./Review"
 function FilmDetails() {
 
 const [film, setFilm] = useState([])
+const [show, setShow] = useState(true)
 const [formData, setFormData] = useState({
   name: "",
   review_body: ""
@@ -33,6 +34,7 @@ function handleSubmit(e){
   })
    .then((resp) => resp.json())
    .then(newReview => setReviews([...reviews, newReview]))
+   .catch(error => setShow(!show))
   
   
   setFormData({
@@ -120,8 +122,13 @@ const opts = {
           {reviews.map(review => <Review key={review.id} review={review} handleDeleteReview={handleDeleteReview} onUpdateReview={onUpdateReview} />)}
         </div>
 
-        <div className="submitReview">
+        <div className={show ? "display" : "hide"}>
           <ReviewForm handleChange={handleChange} handleSubmit={handleSubmit} formData={formData} />
+        </div>
+
+        <div className={!show ? "errorSubmit" : "hide"}>
+          <p>Please enter a valid username.</p>
+          <button onClick={() =>setShow(!show)}>Try again.</button>
         </div>
 
       </div>

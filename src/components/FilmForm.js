@@ -9,7 +9,8 @@ function FilmForm({ onAddFilm }) {
     synopsis: "",
     criticsConsensus: "",
     image: "",
-    trailer: ""
+    trailer: "",
+    banner:
   }
 
   const [newFilmData, setNewFilmData] = useState(initialState)

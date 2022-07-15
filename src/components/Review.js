@@ -49,7 +49,7 @@ function Review( {review, handleDeleteReview, onUpdateReview} ) {
         </div>
         <form className={show ? "display" : "hide"} onSubmit={handleSubmit}>
           <textarea className="editInput" type='text' required id='name' name='name' onChange={handleChange} value={edit}/>
-          <button type='submit'>Edit</button>
+          <button type='submit'>Done</button>
         </form>
       </div>
     );
